@@ -1,0 +1,15 @@
+﻿<Window x:Class="RectAlmostTessellation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RectAlmostTessellation"
+        mc:Ignorable="d"
+        Title="RectAlmostTessellation" Height="450" Width="800" SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Canvas x:Name="Rgn" Margin="0,0,0,33"/>
+        <Button Content="Create and go" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="104" Margin="0,0,3,3" Click="Button_Click"/>
+        <TextBox x:Name="NumTextBox" HorizontalAlignment="Right" Margin="0,0,110,3" Text="50" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" KeyDown="TextBox_KeyDown"/>
+
+    </Grid>
+</Window>
