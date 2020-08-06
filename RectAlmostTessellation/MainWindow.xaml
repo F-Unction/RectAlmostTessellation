@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RectAlmostTessellation" Height="450" Width="800" SizeChanged="Window_SizeChanged">
     <Grid>
-        <Canvas x:Name="Rgn" Margin="0,0,0,33"/>
+        <Canvas x:Name="Rgn" Margin="0,0,0,33" Background="Black"/>
         <Button Content="Create and go" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="104" Margin="0,0,3,3" Click="Button_Click"/>
         <TextBox x:Name="NumTextBox" HorizontalAlignment="Right" Margin="0,0,110,3" Text="50" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" KeyDown="TextBox_KeyDown"/>
 

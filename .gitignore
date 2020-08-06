@@ -3,3 +3,9 @@
 ################################################################################
 
 *.v2
+*.suo
+*.pdb
+*.exe
+*.dll
+/RectAlmostTessellation/obj
+/RectAlmostTessellation/bin/Debug/netcoreapp3.1

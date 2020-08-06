@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using static RectAlmostTessellation.Program;
 
 namespace RectAlmostTessellation
 {
@@ -13,6 +14,7 @@ namespace RectAlmostTessellation
     public partial class MainWindow : Window
     {
         private List<Rect> rects = new List<Rect>();
+        private Rect[] rectsArray = new Rect[0];
         private int RectNum = new int();
 
         public MainWindow()
@@ -39,7 +41,8 @@ namespace RectAlmostTessellation
             {
                 rects[i].Done = false;
             }
-            Tessellation(0, 0, (int)Rgn.ActualWidth, (int)Rgn.ActualWidth);
+            rectsArray = rects.ToArray();
+            Tessellation(0, 0, (int)Rgn.ActualWidth, (int)Rgn.ActualWidth,RectNum,ref rectsArray);
             ShowRects();
         }
 
@@ -49,7 +52,8 @@ namespace RectAlmostTessellation
             {
                 GenRandonRects();
                 rects.Sort();
-                Tessellation(0, 0, (int)Rgn.ActualWidth, (int)Rgn.ActualWidth);
+                rectsArray = rects.ToArray();
+                Tessellation(0, 0, (int)Rgn.ActualWidth, (int)Rgn.ActualWidth, RectNum, ref rectsArray);
             }
             ShowRects();
         }
@@ -61,37 +65,6 @@ namespace RectAlmostTessellation
             {
                 Random rd = new Random();
                 rects.Add(new Rect(0, 0, rd.Next(1, 7) * 20, rd.Next(1, 5) * 20));
-            }
-        }
-
-        private void Tessellation(int RgnLeft, int RgnTop, int RgnW, int RgnH)
-        {
-            if (RectNum != 0)
-            {
-                int i;
-                for (i = 0; i < RectNum; i++)
-                {
-                    if (!rects[i].Done && rects[i].Width <= RgnW && rects[i].Height <= RgnH)
-                    {
-                        if (i >= RectNum || i < 0)
-                        {
-                            return;
-                        }
-                        if (i == RectNum && rects[i].Done)
-                        {
-                            return;
-                        }
-                        rects[i].X = RgnLeft;
-                        rects[i].Y = RgnTop;
-                        rects[i].Done = true;
-
-                        Tessellation(RgnLeft + rects[i].Width, RgnTop, RgnW - rects[i].Width, rects[i].Height);
-                        Tessellation(RgnLeft, RgnTop + rects[i].Height, RgnW, RgnH - rects[i].Height);
-
-                        break;
-                    }
-                }
-             
             }
         }
 
